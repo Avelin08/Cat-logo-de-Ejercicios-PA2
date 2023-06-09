@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define NUM_MEDICIONES 12
+
+void generar_mediciones(float *temperaturas, int num_mediciones) 
+{
+    for (int i = 0; i < num_mediciones; i++) {
+        temperaturas[i] = (rand() % 71) / 10.0 + 35.0; // Genera una temperatura aleatoria entre 35.0 y 42.0
+    }
+}
+
+void analizar_temperaturas(float *temperaturas, int num_mediciones, float *min, float *max, float *promedio, float *) 
+{
+    *min = *max = *temperaturas;
+    float suma = 0;
+
+    for (int i = 0; i < num_mediciones; i++) 
+    {
+        float temp = *(temperaturas + i);
+        suma += temp;
+
+        if (temp < *min) 
+        {
+            *min = temp;
+        }
+        if (temp > *max) 
+        {
+            *max = temp;
+        }
+    }
+
+    *promedio = suma / num_mediciones;
+}
+
+int main() {
+    
+    srand(time(NULL));
+
+    float temperaturas[NUM_MEDICIONES];
+    generar_mediciones(temperaturas, NUM_MEDICIONES);
+
+    float min, max, promedio;
+    analizar_temperaturas(temperaturas, NUM_MEDICIONES, &min, &max, &promedio);
+
+    printf("Temperaturas registradas:\n");
+    for (int i = 0; i < NUM_MEDICIONES; i++) 
+    {
+        printf("%.1f ", temperaturas[i]);
+    }
+    printf("\n");
+
+    printf("Temperatura mínima: %.1f\n", min);
+    printf("Temperatura máxima: %.1f\n", max);
+    printf("Temperatura promedio: %.1f\n", promedio);
+
+    return 0;
+}
