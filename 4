@@ -1,0 +1,79 @@
+#include <stdio.h>
+
+typedef struct {
+    int id;
+    float presion;
+} Neumatico;
+
+void leerPresionNeumaticos(Neumatico *neumaticos, int n);
+void evaluarPresion(Neumatico *neumaticos, int n, int tipoAuto);
+
+int main() {
+    Neumatico neumaticos[4];
+    int opcion, tipoAuto;
+
+    do {
+        printf("\nMenú:\n");
+        printf("1. Leer presión de neumáticos\n");
+        printf("2. Evaluar presión\n");
+        printf("3. Salir\n");
+        printf("Ingrese una opción: ");
+        scanf("%d", &opcion);
+
+        switch (opcion) {
+            case 1:
+                leerPresionNeumaticos(neumaticos, 4);
+                break;
+            case 2:
+                printf("Ingrese el tipo de auto (1: pequeño, 2: mediano, 3: grande): ");
+                scanf("%d", &tipoAuto);
+                evaluarPresion(neumaticos, 4, tipoAuto);
+                break;
+            case 3:
+                printf("Saliendo...\n");
+                break;
+            default:
+                printf("Opción no válida. Intente de nuevo.\n");
+        }
+    } while (opcion != 3);
+
+    return 0;
+}
+
+void leerPresionNeumaticos(Neumatico *neumaticos, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Ingrese la presión del neumático %d: ", i + 1);
+        scanf("%f", &(neumaticos + i)->presion);
+        (neumaticos + i)->id = i + 1;
+    }
+}
+
+void evaluarPresion(Neumatico *neumaticos, int n, int tipoAuto) {
+    float min, max;
+
+    switch (tipoAuto) {
+        case 1:
+            min = 30;
+            max = 35;
+            break;
+        case 2:
+            min = 32;
+            max = 35;
+            break;
+        case 3:
+            min = 35;
+            max = 45;
+            break;
+        default:
+            printf("Tipo de auto no válido.\n");
+            return;
+    }
+
+    for (int i = 0; i < n; i++) {
+        if ((neumaticos + i)->presion < min || (neumaticos + i)->presion > max) {
+            printf("Neumático %d Warning (%.1f - %.1f PSI).\n", (neumaticos + i)->id, min, max);
+        } else {
+            printf("Neumático %d Warning (%.1f - %.1f PSI).\n", (neumaticos + i)->id, min, max);
+        }
+    }
+}
