@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+// Definición de la estructura "persona"
+typedef struct 
+{
+    char nombre[20];
+    int edad;
+    char sexo;
+}
+Persona;
+
+int main() 
+{
+    // Creación de una variable de tipo "persona"
+    Persona persona1;
+    Persona persona2;
+
+    // Asignación de valores a la variable "persona1"
+    snprintf(persona1.nombre,(persona1.nombre), "Avelino Reyes");
+    persona1.edad = 21;
+    persona1.sexo = 'M';
+    snprintf(persona2.nombre,(persona2.nombre), "Jesus Rodríguez");
+    persona2.edad = 20;
+    persona2.sexo = 'M';
+
+    // Imprimir los valores de la variable "persona1"
+    printf("Nombre: %s\n", persona1.nombre);
+    printf("Edad: %d\n", persona1.edad);
+    printf("Sexo: %c\n", persona1.sexo);
+       printf("Nombre: %s\n", persona2.nombre);
+       printf("Edad: %d\n", persona2.edad);
+       printf("Sexo: %c\n", persona.sexo);
+
+    return 0;
+}
