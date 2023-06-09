@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+
+// Definición de la estructura Persona
+struct Persona {
+    char nombre[50];
+    int edad;
+    float altura;
+};
+
+int main() {
+    // Creo un array de tipo Persona llamado personas con capacidad para 5 elementos
+    struct Persona personas[5];
+    //modificar los elemetos de la estructura
+    // Solicitar los datos de las 5 personas
+    for (int i = 0; i < 5; i++) {
+        printf("Ingrese el nombre de la persona %d: ", i + 1);
+        scanf("%s", personas[i].nombre);
+        printf("Ingrese la edad de la persona %d: ", i + 1);
+        scanf("%d", &personas[i].edad);
+        printf("Ingrese la altura de la persona %d (en metros): ", i + 1);
+        scanf("%f", &personas[i].altura);
+        printf("\n");
+    }
+    
+    // Imprimir los datos de las 5 personas
+    for (int i = 0; i < 5; i++) {
+        printf("Datos de la persona %d:\n", i + 1);
+        printf("Nombre: %s\n", personas[i].nombre);
+        printf("Edad: %d\n", personas[i].edad);
+        printf("Altura: %.2f\n", personas[i].altura);
+        printf("\n");
+    }
+    
+    return 0;
+}
