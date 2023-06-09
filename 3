@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define NUM_NEUMATICOS 4
+void llenar(void);
+void imprime(void);
+struct presionesNeumaticos
+
+{
+     char TipoAuto[20];
+    float presion[4];
+    float llanta[4];
+    char situacion[10];
+}
+
+presionesNeumaticos[];
+int i,t;
+int main()
+{  llenar();
+imprime();
+return 0;
+}
+void llenar()
+{ 
+ i=0;
+ while(i!=9)
+    
+    {
+         printf("TipoAuto\n");
+     scanf("%s",&presionesNeumaticos[i].TipoAuto);
+     
+     printf("Presión llanta 1\n");
+     scanf("%f",&presionesNeumaticos[i].presion[0]);
+     printf("Presión llanta 2\n");
+     scanf("%f",&presionesNeumaticos[i].presion[1]);
+     printf("Presión llanta 3\n");
+     scanf("%f",&presionesNeumaticos[i].presion[2]);
+     printf("Presión llanta 4\n");
+     scanf("%f",&presionesNeumaticos[i].presion[3]);
+     
+     presionesNeumaticos[i].presion[3]=(presionesNeumaticos.presion[0];presionesNeumaticos.presion[1];presionesNeumaticos.presion[2];presionesNeumaticos.presion[3]); 
+     if(llanta[i].presion[3]>=30)
+       strcpy(llanta[i].situacion,"Normal");
+     
+      else
+        strcpy(llanta[i].situacion,"Alerta");
+        printf("%s\n",llanta[i].situacion);
+        printf("pulsa 9 para terminar\n");
+        scanf("%i",&i);
+        t++;
+        
+    }
+}
+    
+    void imprime(void)
+{
+    for(i=0;i<=t;i++)
+    {
+     printf("%s\n",presionesNeumaticos[i].TipoAuto);
+     printf("%.2f\n",presionesNeumaticos[i].llanta[3]);
+     printf("%s\n",presionesNeumaticos[i].situacion);
+    }
+}
+
